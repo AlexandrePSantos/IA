@@ -1,4 +1,3 @@
-import numpy
 import copy
 import random
 import time
@@ -7,12 +6,12 @@ SIZE = 600
 
 
 class gamestate:
-    N = numpy.unsignedinteger
-    sq = numpy.unsignedinteger
+    N = 0
+    sq = 0
     tabuleiro = []
     tipo = 3
-    ai1diff = numpy.unsignedinteger
-    ai2diff = numpy.unsignedinteger
+    ai1diff = 0
+    ai2diff = 0
     nMovs = 1
     vencedor = 0
 

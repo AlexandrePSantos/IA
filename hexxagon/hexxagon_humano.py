@@ -5,7 +5,6 @@
 # copy - set of functions that allow the copying of elements like lists
 # random - generation of pseudo-random numbers
 
-from numpy import unsignedinteger
 import pygame
 import time
 import copy
@@ -25,12 +24,12 @@ SIZE = 600
 #     - The winner
 
 class gamestate:
-    N = unsignedinteger
-    sq = unsignedinteger
+    N = 0
+    sq = 0
     tabuleiro = []
-    tipo = unsignedinteger
-    ai1diff = unsignedinteger
-    ai2diff = unsignedinteger
+    tipo = 0
+    ai1diff = 0
+    ai2diff = 0
     nMovs = 1
     vencedor = 0
 
