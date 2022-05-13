@@ -98,7 +98,7 @@ def troca_jog(jog):
         return 1
 
 
-def comer():
+def Infetar():
     dx = -1
     dy = -1
     for dx in range(dx, 2):
@@ -128,7 +128,7 @@ def executa_movimento():
     gamestate.tabuleiro[movimento.yf][movimento.xf] = movimento.jog
     if movimento.tipo == 1:
         gamestate.tabuleiro[movimento.yi][movimento.xi] = 0
-    comer()
+    Infetar()
 
 
 def adjacente(dist, classe):
