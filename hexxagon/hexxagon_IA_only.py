@@ -40,7 +40,7 @@ class bestmov:
     xf = 0
 
 
-class minmaxmov:
+class minimaxmov:
     xi = 0
     yi = 0
     yf = 0
@@ -73,12 +73,12 @@ def players():
     print("Player 1:")
     print("1) Random")
     print("2) Greedy")
-    print("3) Minmax")
+    print("3) minimax")
     gamestate.ai1diff = int(input())
     print("Player 2:")
     print("1) Random")
     print("2) Greedy")
-    print("3) Minmax")
+    print("3) minimax")
     gamestate.ai2diff = int(input())
     return
 
@@ -275,23 +275,23 @@ def avalia(tipo):
     elif tipo == 3:
         if gamestate.nMovs % 2 != 1:
             movimento.jog = 1
-            minmaxmov.min = 1
-            minmaxmov.max = 2
+            minimaxmov.min = 1
+            minimaxmov.max = 2
         else:
             movimento.jog = 2
-            minmaxmov.min = 2
-            minmaxmov.max = 1
-        minmaxmov.yi = movimento.yi
-        minmaxmov.xi = movimento.xi
-        minmaxmov.yf = movimento.yf
-        minmaxmov.xf = movimento.xf
+            minimaxmov.min = 2
+            minimaxmov.max = 1
+        minimaxmov.yi = movimento.yi
+        minimaxmov.xi = movimento.xi
+        minimaxmov.yf = movimento.yf
+        minimaxmov.xf = movimento.xf
         alfa = -100000
         beta = 100000
-        score = algo_minmax(0, True, alfa, beta)
-        movimento.yi = minmaxmov.yi
-        movimento.xi = minmaxmov.xi
-        movimento.yf = minmaxmov.yf
-        movimento.xf = minmaxmov.xf
+        score = algo_minimax(0, True, alfa, beta)
+        movimento.yi = minimaxmov.yi
+        movimento.xi = minimaxmov.xi
+        movimento.yf = minimaxmov.yf
+        movimento.xf = minimaxmov.xf
     elif tipo > 3:
         score = random.random()
     return score
@@ -306,12 +306,12 @@ def algo_greedy():
     return conta_pecas(movimento.jog) - conta_pecas(troca_jog(movimento.jog))+salt
 
 
-def algo_minmax(depth, minimizer, alfa, beta):
+def algo_minimax(depth, minimizer, alfa, beta):
     if depth == 3 or fim_jogo == -1:
         return algo_greedy() * (-1)
 
     if minimizer:
-        movimento.jog = minmaxmov.min
+        movimento.jog = minimaxmov.min
         value = +1000
         for yi in range(gamestate.N):
             for xi in range(gamestate.N):
@@ -325,17 +325,17 @@ def algo_minmax(depth, minimizer, alfa, beta):
                             if movimento_valido(movimento):
                                 temp = copy.deepcopy(gamestate.tabuleiro)
                                 executa_movimento()
-                                evaluation = algo_minmax(
+                                evaluation = algo_minimax(
                                     depth + 1, False, alfa, beta)
                                 gamestate.tabuleiro = temp
                                 value = min(value, evaluation)
                                 beta = min(beta, evaluation)
                                 if beta <= alfa:
                                     break
-        movimento.jog = minmaxmov.max
+        movimento.jog = minimaxmov.max
         return value
     else:
-        movimento.jog = minmaxmov.max
+        movimento.jog = minimaxmov.max
         value = -1000
         for yi in range(gamestate.N):
             for xi in range(gamestate.N):
@@ -349,14 +349,14 @@ def algo_minmax(depth, minimizer, alfa, beta):
                             if movimento_valido(movimento):
                                 temp = copy.deepcopy(gamestate.tabuleiro)
                                 executa_movimento()
-                                evaluation = algo_minmax(
+                                evaluation = algo_minimax(
                                     depth + 1, True, alfa, beta)
                                 gamestate.tabuleiro = temp
                                 value = max(value, evaluation)
                                 alfa = max(alfa, evaluation)
                                 if beta <= alfa:
                                     break
-        movimento.jog = minmaxmov.min
+        movimento.jog = minimaxmov.min
         return value
 
 
@@ -402,20 +402,21 @@ def main():
             finaliza()
             running = False
 
-    print("\n")
-    print("Vitórias do Player 1: ", resultados.vermelho)
-    print("Vitórias do Player 2: ", resultados.azul)
-    print("Empates: ", resultados.empate)
-    print("Jogos feitos: " + str(total) + " em %s seconds" % (time.time() - start_time))
-    print("Win Rate Player 1: " + str(resultados.vermelho * 100.0 / total) + "%")
-    print("Win Rate Player 2: " + str(resultados.azul * 100.0 / total) + "%")
-
 
 # Função para retornar tempo de execução
 start_time = time.time()
 # Repete o jogo em função do numero de iterações que o user quer (variável 'total')
-for i in range(total - 1):
+for i in range(total):
     main()
 
+
+
+print("\n")
+print("Vitórias do Player 1: ", resultados.vermelho)
+print("Vitórias do Player 2: ", resultados.azul)
+print("Empates: ", resultados.empate)
+print("Tempo de execução: %s" % (time.time() - start_time))
+print("Win Rate Player 1: " + str(resultados.vermelho * 100.0 / total) + "%")
+print("Win Rate Player 2: " + str(resultados.azul * 100.0 / total) + "%")
 
 main()
