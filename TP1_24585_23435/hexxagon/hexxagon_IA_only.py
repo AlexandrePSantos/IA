@@ -2,7 +2,7 @@
 import copy
 #inclui função para gerar valor aleatório
 import random
-#inclui funçõão para contar tempo que demora a executar as jogadas
+#inclui função para contar tempo que demora a executar as jogadas
 import time
 
 #
@@ -70,9 +70,9 @@ def tabul():
 def carrega_tabul(ficheiro):
     f = open(ficheiro)
     gamestate.N = int(f.readline())
-    tabuleiro = []
+    tab = []
     for i in range(gamestate.N):
-        tabuleiro.append(list(map(int, f.readline().split())))
+        tab.append(list(map(int, f.readline().split())))
     f.close()
     gamestate.tabuleiro = tabuleiro
 
