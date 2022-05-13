@@ -411,5 +411,3 @@ print("Empates: ", resultados.empate)
 print("Tempo de execução: %s" % (time.time() - start_time))
 print("Win Rate Player 1: " + str(resultados.vermelho * 100.0 / total) + "%")
 print("Win Rate Player 2: " + str(resultados.azul * 100.0 / total) + "%")
-
-main()
