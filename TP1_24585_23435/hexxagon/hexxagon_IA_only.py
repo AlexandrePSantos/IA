@@ -10,8 +10,8 @@ class gamestate:
     N = 0
     tabuleiro = []
     tipo = 3
-    ai1diff = 0
-    ai2diff = 0
+    player1 = 0
+    player2 = 0
     nMovs = 1
     vencedor = 0
 
@@ -82,12 +82,12 @@ def players():
     print("1 - Random")
     print("2 - Greedy")
     print("3 - Minimax")
-    gamestate.ai1diff = int(input())
+    gamestate.player1 = int(input())
     print("Player 2:")
     print("1 - Random")
     print("2 - Greedy")
     print("3 - Minimax")
-    gamestate.ai2diff = int(input())
+    gamestate.player2 = int(input())
     return
 
 
@@ -253,9 +253,9 @@ def jogada_pc():
                             copia()
                             executa_movimento()
                             if gamestate.nMovs % 2 != 1:
-                                av = avalia(gamestate.ai2diff)
+                                av = avalia(gamestate.player2)
                             else:
-                                av = avalia(gamestate.ai1diff)
+                                av = avalia(gamestate.player1)
                             restaura()
                             if av >= bestav:
                                 bestav = av
