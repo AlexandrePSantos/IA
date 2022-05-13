@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37fa92bb-1616-4237-b645-0253a548e58a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TP1_24585_23435/hexxagon/hexxagon_IA_only.py" beforeDir="false" afterPath="$PROJECT_DIR$/TP1_24585_23435/hexxagon/hexxagon_IA_only.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +89,7 @@
       <updated>1652433384885</updated>
       <workItem from="1652433386241" duration="5559000" />
       <workItem from="1652448827985" duration="2135000" />
-      <workItem from="1652450997022" duration="1389000" />
+      <workItem from="1652450997022" duration="1615000" />
     </task>
     <servers />
   </component>

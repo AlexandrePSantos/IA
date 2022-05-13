@@ -115,7 +115,7 @@ def troca_jog(jog):
     else:
         return 1
 
-# Comment
+# This functions checks if the movement infects other pieces
 
 def Infetar():
     dx = -1
@@ -142,7 +142,7 @@ def Infetar():
                 pass
         dy = -1
 
-# Comment
+# This function executes the movement of a player
 
 def executa_movimento():
     gamestate.tabuleiro[movimento.yf][movimento.xf] = movimento.jog
