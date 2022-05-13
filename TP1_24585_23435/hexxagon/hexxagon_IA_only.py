@@ -1,11 +1,13 @@
+#inclui funções de cópia
 import copy
+#inclui função para gerar valor aleatório
 import random
+#inclui funçõão para contar tempo que demora a executar as jogadas
 import time
 
-
+#
 class gamestate:
     N = 0
-    sq = 0
     tabuleiro = []
     tipo = 3
     ai1diff = 0
@@ -13,7 +15,7 @@ class gamestate:
     nMovs = 1
     vencedor = 0
 
-
+#
 class movimento:
     xi = 0
     yi = 0
