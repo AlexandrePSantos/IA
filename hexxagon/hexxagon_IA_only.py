@@ -114,7 +114,6 @@ def comer():
                                             1][movimento.xf + dx] = movimento.jog
                 elif movimento.xf + dx == -1:
                     if gamestate.tabuleiro[movimento.yf + dy][0] == troca_jog(movimento.jog):
-                        # Trabalho Realizado por Pedro Sousa e Inês Cardoso
                         gamestate.tabuleiro[movimento.yf + dy][movimento.xf +
                                                                dx+1] = movimento.jog
 
@@ -233,7 +232,7 @@ def finaliza():
 
 
 def jogada_pc():
-    bestav = -1000
+    bestav = -100
     for yi in range(gamestate.N):
         for xi in range(gamestate.N):
             if gamestate.tabuleiro[yi][xi] == movimento.jog:
