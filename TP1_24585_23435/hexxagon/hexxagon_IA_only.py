@@ -2,8 +2,6 @@ import copy
 import random
 import time
 
-SIZE = 600
-
 
 class gamestate:
     N = 0
@@ -61,7 +59,6 @@ def tabul():
 def carrega_tabul(ficheiro):
     f = open(ficheiro)
     gamestate.N = int(f.readline())
-    gamestate.sq = SIZE / gamestate.N
     tabuleiro = []
     for i in range(gamestate.N):
         tabuleiro.append(list(map(int, f.readline().split())))
@@ -410,8 +407,6 @@ for i in range(total):
 print("\n")
 print("Vitórias do Player 1: ", resultados.vermelho)
 print("Vitórias do Player 2: ", resultados.azul)
-print("Peças Player 1:", conta_pecas(1))
-print("Peças Player 2:", conta_pecas(2))
 print("Empates: ", resultados.empate)
 print("Tempo de execução: %s" % (time.time() - start_time))
 print("Win Rate Player 1: " + str(resultados.vermelho * 100.0 / total) + "%")
