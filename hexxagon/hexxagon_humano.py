@@ -445,7 +445,7 @@ def algo_minmax(depth, minimizer, alfa, beta):
                                 temp = copy.deepcopy(gamestate.tabuleiro)
                                 executa_movimento()
                                 evaluation = algo_minmax(
-                                    depth + 1, False, alfa, beta)
+                                    depth + 3, False, alfa, beta)
                                 gamestate.tabuleiro = temp
                                 value = min(value, evaluation)
                                 beta = min(beta, evaluation)
@@ -469,7 +469,7 @@ def algo_minmax(depth, minimizer, alfa, beta):
                                 temp = copy.deepcopy(gamestate.tabuleiro)
                                 executa_movimento()
                                 evaluation = algo_minmax(
-                                    depth + 1, True, alfa, beta)
+                                    depth + 3, True, alfa, beta)
                                 gamestate.tabuleiro = temp
                                 value = max(value, evaluation)
                                 alfa = max(alfa, evaluation)
