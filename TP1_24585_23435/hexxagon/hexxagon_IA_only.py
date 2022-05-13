@@ -51,6 +51,15 @@ class save:
     game = []
 
 
+class resultados:
+    vermelho = 0
+    azul = 0
+    empate = 0
+    jogadas = []
+    diff = []
+    media = 0
+
+
 def tabul():
     board = "hex.txt"
     return board
@@ -353,15 +362,6 @@ def algo_minimax(depth, minimizer, alfa, beta):
                                     break
         movimento.jog = minimaxmov.min
         return value
-
-
-class resultados:
-    vermelho = 0
-    azul = 0
-    empate = 0
-    jogadas = []
-    diff = []
-    media = 0
 
 
 tabuleiro = tabul()
