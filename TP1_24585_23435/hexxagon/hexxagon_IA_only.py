@@ -5,7 +5,13 @@ import random
 #inclui funçõão para contar tempo que demora a executar as jogadas
 import time
 
+<<<<<<< HEAD
 #
+=======
+SIZE = 600
+
+
+>>>>>>> parent of 217936d (comment 1)
 class gamestate:
     N = 0
     tabuleiro = []
@@ -15,7 +21,11 @@ class gamestate:
     nMovs = 1
     vencedor = 0
 
+<<<<<<< HEAD
 #
+=======
+
+>>>>>>> parent of 217936d (comment 1)
 class movimento:
     xi = 0
     yi = 0
@@ -52,6 +62,7 @@ class minimaxmov:
 class save:
     game = []
 
+<<<<<<< HEAD
 
 class resultados:
     vermelho = 0
@@ -61,6 +72,8 @@ class resultados:
     diff = []
     media = 0
 
+=======
+>>>>>>> parent of 217936d (comment 1)
 
 def tabul():
     board = "hex.txt"
