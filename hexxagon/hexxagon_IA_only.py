@@ -54,7 +54,7 @@ class save:
 
 
 def tabul():
-    board = "tabuleiro/hex.txt"
+    board = "hex.txt"
     return board
 
 
@@ -71,14 +71,14 @@ def carrega_tabul(ficheiro):
 
 def players():
     print("Player 1:")
-    print("1) Random")
-    print("2) Greedy")
-    print("3) minimax")
+    print("1 - Random")
+    print("2 - Greedy")
+    print("3 - Minimax")
     gamestate.ai1diff = int(input())
     print("Player 2:")
-    print("1) Random")
-    print("2) Greedy")
-    print("3) minimax")
+    print("1 - Random")
+    print("2 - Greedy")
+    print("3 - Minimax")
     gamestate.ai2diff = int(input())
     return
 
@@ -371,7 +371,7 @@ tabuleiro = tabul()
 carrega_tabul(tabuleiro)
 players()
 
-total = int(input("Número de iterações a realizar: "))
+total = int(input("Número de iterações: "))
 
 
 def main():

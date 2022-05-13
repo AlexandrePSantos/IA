@@ -79,7 +79,7 @@ class save:
 # - This function reads the chosen board by the player
 
 def tabul():
-    tabuleiro = "tabuleiro/hex.txt"
+    tabuleiro = "hex.txt"
     return tabuleiro
 
 # - After the player has chosen the board this function loads it into the gamestate class
@@ -110,9 +110,9 @@ def dificuldade():
         return
     elif gamestate.tipo == 2:
         print("Dificuldade:")
-        print("1) Fácil")
-        print("2) Médio")
-        print("3) Difícil")
+        print("1 - Fácil (Random)")
+        print("2 - Médio (Greedy)")
+        print("3 - Difícil (Minimax)")
         gamestate.ai2diff = input()
         return
 
