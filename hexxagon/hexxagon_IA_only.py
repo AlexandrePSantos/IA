@@ -324,7 +324,7 @@ def algo_minimax(depth, minimizer, alfa, beta):
                                 temp = copy.deepcopy(gamestate.tabuleiro)
                                 executa_movimento()
                                 evaluation = algo_minimax(
-                                    depth + 3, False, alfa, beta)
+                                    depth + 1, False, alfa, beta)
                                 gamestate.tabuleiro = temp
                                 value = min(value, evaluation)
                                 beta = min(beta, evaluation)
@@ -348,7 +348,7 @@ def algo_minimax(depth, minimizer, alfa, beta):
                                 temp = copy.deepcopy(gamestate.tabuleiro)
                                 executa_movimento()
                                 evaluation = algo_minimax(
-                                    depth + 3, True, alfa, beta)
+                                    depth + 1, True, alfa, beta)
                                 gamestate.tabuleiro = temp
                                 value = max(value, evaluation)
                                 alfa = max(alfa, evaluation)
@@ -407,13 +407,13 @@ start_time = time.time()
 for i in range(total):
     main()
 
-
-
 print("\n")
 print("Vitórias do Player 1: ", resultados.vermelho)
 print("Vitórias do Player 2: ", resultados.azul)
+print("Peças Player 1:", conta_pecas(1))
+print("Peças Player 2:", conta_pecas(2))
 print("Empates: ", resultados.empate)
-#print("Tempo de execução: %s" % (time.time() - start_time))
+print("Tempo de execução: %s" % (time.time() - start_time))
 print("Win Rate Player 1: " + str(resultados.vermelho * 100.0 / total) + "%")
 print("Win Rate Player 2: " + str(resultados.azul * 100.0 / total) + "%")
 
