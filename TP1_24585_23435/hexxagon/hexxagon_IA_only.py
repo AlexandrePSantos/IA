@@ -87,9 +87,9 @@ def tabul():
 def carrega_tabul(ficheiro):
     f = open(ficheiro)
     gamestate.N = int(f.readline())
-    tab = []
+    tabuleiro = []
     for i in range(gamestate.N):
-        tab.append(list(map(int, f.readline().split())))
+        tabuleiro.append(list(map(int, f.readline().split())))
     f.close()
     gamestate.tabuleiro = tabuleiro
 
