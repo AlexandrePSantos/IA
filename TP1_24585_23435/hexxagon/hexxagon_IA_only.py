@@ -5,9 +5,6 @@ import random
 #inclui função para contar tempo que demora a executar as jogadas
 import time
 
-# - We begin the pygame library, set the maximum FPS to 15 frames per second, and set the window size to 600 pixels
-SIZE = 600
-
 # - Now we need a class to save the game state. This class will contain info like:
 #     - the chosen board and its size (N)
 #     - the square size (dynamic by the screen size over the amount of squares of the board)
@@ -20,8 +17,8 @@ class gamestate:
     N = 0
     tabuleiro = []
     tipo = 3
-    ai1diff = 0
-    ai2diff = 0
+    player1 = 0
+    player2 = 0
     nMovs = 1
     vencedor = 0
 
@@ -100,12 +97,12 @@ def players():
     print("1 - Random")
     print("2 - Greedy")
     print("3 - Minimax")
-    gamestate.ai1diff = int(input())
+    gamestate.player1 = int(input())
     print("Player 2:")
     print("1 - Random")
     print("2 - Greedy")
     print("3 - Minimax")
-    gamestate.ai2diff = int(input())
+    gamestate.player2 = int(input())
     return
 
 # - These next 2 functions save the gamestate and restores it when called, respectively
@@ -287,9 +284,9 @@ def jogada_pc():
                             copia()
                             executa_movimento()
                             if gamestate.nMovs % 2 != 1:
-                                av = avalia(gamestate.ai2diff)
+                                av = avalia(gamestate.player2)
                             else:
-                                av = avalia(gamestate.ai1diff)
+                                av = avalia(gamestate.player1)
                             restaura()
                             if av >= bestav:
                                 bestav = av
