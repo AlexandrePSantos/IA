@@ -28,8 +28,8 @@ class gamestate:
     sq = 0
     tabuleiro = []
     tipo = 0
-    ai1diff = 0
-    ai2diff = 0
+    player1 = 0
+    player2 = 0
     nMovs = 1
     vencedor = 0
 
@@ -113,7 +113,7 @@ def dificuldade():
         print("1 - Fácil (Random)")
         print("2 - Médio (Greedy)")
         print("3 - Difícil (Minimax)")
-        gamestate.ai2diff = input()
+        gamestate.player2 = input()
         return
 
 # - These next 2 functions save the gamestate and restores it when called, respectively
@@ -172,7 +172,7 @@ def mostra_tabul(screen):
 # - This function deals with taking of the opponent pieces, after a movement is done, any adjacent pieces are swapped
 #     - Note: Every if in the try...except is to stop taking from across the board because tabuleiro[-1] = tabuleiro[N]
 
-def comer():
+def infetar():
     dx = -1
     dy = -1
     for dx in range(dx, 2):
@@ -206,7 +206,7 @@ def executa_movimento():
     gamestate.tabuleiro[movimento.yf][movimento.xf] = movimento.jog
     if movimento.tipo == 1:
         gamestate.tabuleiro[movimento.yi][movimento.xi] = 0
-    comer()
+    infetar()
 
 # - Checks if the movement choice is either a jump or a multiplication
 
@@ -217,7 +217,7 @@ def adjacente(dist, classe):
 
 # - Checks if the move is inside the board limits
 
-def dentro(x, y):
+def boardLimite(x, y):
     return 0 <= x <= gamestate.N - 1 and 0 <= y <= gamestate.N - 1
 
 # - Using the last 2 functions, this one checks if the move is totally valid
@@ -226,7 +226,7 @@ def dentro(x, y):
 def movimento_valido(classe):
     if abs(classe.yf - classe.yi) == 2 and abs(classe.xf - classe.xi) == 1 or abs(classe.xf - classe.xi) == 2 and abs(classe.yf - classe.yi) == 1:
         return False
-    if not dentro(classe.xi, classe.yi) or not dentro(classe.xf, classe.yf):
+    if not boardLimite(classe.xi, classe.yi) or not boardLimite(classe.xf, classe.yf):
         return False
     if gamestate.tabuleiro[classe.yi][classe.xi] == movimento.jog and gamestate.tabuleiro[classe.yf][classe.xf] == 0 and adjacente(1, classe):
         classe.tipo = 0
@@ -358,9 +358,9 @@ def jogada_PC():
                             copia()
                             executa_movimento()
                             if gamestate.nMovs % 2 != 1:
-                                av = avalia(gamestate.ai2diff)
+                                av = avalia(gamestate.player2)
                             else:
-                                av = avalia(gamestate.ai1diff)
+                                av = avalia(gamestate.player1)
                             restaura()
                             if av >= bestav:
                                 bestav = av
